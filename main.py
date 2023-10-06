@@ -8,7 +8,7 @@ class Calculator():
         self.root.geometry("1200x700")
         self.root.maxsize(485,590)
         self.root.title("Caculator")
-        self.root.iconbitmap("images\\calculator-icon.ico")
+        # self.root.iconbitmap("images\\calculator-icon.ico")
         self.scvalue = StringVar()
         self.screen = Entry(self.root,textvariable=self.scvalue,font="comic 25",borderwidth=30,relief="sunken",background="lightblue",state="readonly").pack(anchor="nw",ipadx=27,padx=4)
         self.buttonsFrame = Frame(self.root)
@@ -64,7 +64,7 @@ class Calculator():
         self.b1.bind("<Button-1>",self.calculate)
         self.b1.pack(side="left",anchor="nw",ipadx=31,ipady=10,padx=2,pady=5)
 
-        self.b1 = Button(self.buttonFrameRow1,text="*",font="comic 25")
+        self.b1 = Button(self.buttonFrameRow1,text="x",font="comic 25")
         self.b1.bind("<Button-1>",self.calculate)
         self.b1.pack(side="left",anchor="nw",ipadx=33,ipady=10,padx=2,pady=5)
 
@@ -84,7 +84,7 @@ class Calculator():
         self.b1.bind("<Button-1>",self.calculate)
         self.b1.pack(side="left",anchor="nw",ipadx=31,ipady=10,padx=2,pady=5)
 
-        self.b1 = Button(self.buttonFrameRow1,text="/",font="comic 25")
+        self.b1 = Button(self.buttonFrameRow1,text="÷",font="comic 25")
         self.b1.bind("<Button-1>",self.calculate)
         self.b1.pack(side="left",anchor="nw",ipadx=35,ipady=10,padx=2,pady=5)
 
@@ -113,7 +113,9 @@ class Calculator():
     def calculate(self,event):
         self.text = event.widget.cget("text")
         if (self.text == "="):
-
+            self.value = self.scvalue.get()
+            self.value = self.value.replace("x","*")
+            self.value = self.value.replace("÷","/")
             if "√" in self.scvalue.get():
                 if self.scvalue.get().split("√")[0] != "":
                     self.squareRoot = sqrt(int("".join(self.scvalue.get().split("√")[1:])))
