@@ -1,6 +1,6 @@
 from tkinter import *
 from math import sqrt
-root = Tk()
+
 
 class Calculator():
     def __init__(self,master):
@@ -133,8 +133,9 @@ class Calculator():
         else:
             self.scvalue.set(self.scvalue.get() + self.text)
 
+if __name__ == "__main__":     
+    root = Tk()
+           
+    calculator = Calculator(root)
 
-            
-A = Calculator(root)
-
-root.mainloop()
+    root.mainloop()
