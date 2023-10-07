@@ -16,7 +16,7 @@ class Calculator():
         self.root.geometry("1200x700")
         self.root.maxsize(485,590)
         self.root.title("Caculator 2.0")
-        self.root.iconbitmap(resource_path("cal-icon.ico"))
+        self.root.iconbitmap(resource_path("cal-icon.icos"))
         self.scvalue = StringVar()
         self.screen = Entry(self.root,textvariable=self.scvalue,font="comic 25",borderwidth=30,relief="sunken",background="lightblue",state="readonly").pack(anchor="nw",ipadx=27,padx=4)
         self.buttonsFrame = Frame(self.root)
